@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Farnaz Farhand | AI Developer</title>
-<meta name="description" content="Farnaz Farhand: AI developer working on computer vision, NLP, and agentic AI systems.">
+<title>Farnaz Farhand | AI Engineer</title>
+<meta name="description" content="Farnaz Farhand: AI Engineer working on computer vision, generative AI, LLMs, and multimodal AI.">
 <style>
   :root {
     --bg: #ffffff;
@@ -107,6 +107,14 @@
     .photo { width: 160px; height: 160px; margin-left: 10px; }
   }
 
+  .email-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+  .email-text {
+    font-weight: 600; padding: 8px 14px; border-radius: 8px;
+    background: var(--bg-soft); border: 1px solid var(--border);
+    user-select: all; -webkit-user-select: all;
+  }
+  button.btn { font-family: inherit; cursor: pointer; }
+
   footer { margin-top: 48px; padding: 24px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.88rem; text-align: center; }
 </style>
 </head>
@@ -116,15 +124,13 @@
   <div class="wrap hero-inner">
     <div class="hero-text">
       <h1>Farnaz Farhand</h1>
-      <div class="title">AI Developer</div>
-      <p>I work on computer vision, NLP, and agentic AI systems. I love mathematics, I like to learn by building things from first principles, and I want to add something new to this world.</p>
+      <div class="title">AI Engineer | Computer Vision | Generative AI | LLMs | Multimodal AI</div>
+      <p>I work on computer vision, DeepLearning, and Large language models (LLMs). I love mathematics, I like to learn by building things from first principles, and I like to add something new to this world.</p>
       <div class="links">
-        <a class="btn primary" href="mailto:farnaz.farhand@gmail.com">Email me</a>
+        <a class="btn primary" href="#contact">Contact me</a>
         <a class="btn" href="https://github.com/farnaz-frd" target="_blank" rel="noopener">GitHub</a>
-        <!-- TODO: replace with your real LinkedIn URL -->
-        <a class="btn" href="https://www.linkedin.com/in/YOUR-LINKEDIN-NAME" target="_blank" rel="noopener">LinkedIn</a>
-        <!-- TODO: upload your CV as farnaz-farhand-cv.pdf to the repo, then this link works -->
-        <a class="btn" href="farnaz-farhand-cv.pdf">Download CV</a>
+        <a class="btn" href="https://www.linkedin.com/in/farnaz-farhand-2b0069192/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="Resume.pdf" target="_blank" rel="noopener">Download CV</a>
       </div>
     </div>
     <div class="photo">
@@ -150,8 +156,8 @@
 
   <section id="about">
     <h2>About</h2>
-    <p>I am a computer engineer from Shiraz, Iran, with a background in computer vision, NLP, supervised learning, and deep learning. I have worked on industry projects such as object tracking and plant classification, and I have done research in explainable AI, quantum computing, and AI security with Prof. Arash Habibi Lashkari at the BCCC Lab (York University, Canada).</p>
-    <p>Since mid-2026 I have been teaching myself Generative AI and LLM engineering by building everything from scratch: Transformers, LoRA, RAG pipelines, and agents.</p>
+    <p>I am a computer engineer with a background in computer vision, NLP, supervised learning, and deep learning. I have worked on industry projects such as object tracking and plant classification, and I have done research in explainable AI, quantum computing, and AI security with Prof. Arash Habibi Lashkari at the BCCC Lab (York University, Canada).</p>
+    <p>I have been teaching myself Generative AI and LLM engineering by building everything from scratch: Transformers, LoRA, RAG pipelines, and agents.</p>
     <div class="tags">
       <span class="tag">Accountable</span><span class="tag">Committed</span><span class="tag">Honest</span>
       <span class="tag">Diligent</span><span class="tag">Meticulous</span><span class="tag">Cheerful</span><span class="tag">Flexible</span>
@@ -343,11 +349,17 @@
   <section id="contact">
     <h2>Contact</h2>
     <p>I am happy to hear about new opportunities. The best way to reach me is by email.</p>
-    <div class="links">
-      <a class="btn primary" href="mailto:farnaz.farhand@gmail.com">farnaz.farhand@gmail.com</a>
-      <a class="btn" href="https://github.com/farnaz-frd" target="_blank" rel="noopener">github.com/farnaz-frd</a>
+    <div class="email-row">
+      <span class="email-text" id="email-text">farnaz.farhand@gmail.com</span>
+      <button class="btn primary" id="copy-email" type="button">Copy email</button>
+      <a class="btn" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=farnaz.farhand@gmail.com" target="_blank" rel="noopener">Write in Gmail</a>
+      <a class="btn" href="mailto:farnaz.farhand@gmail.com">Open mail app</a>
     </div>
-    <p class="meta" style="margin-top:16px;">Based in Shiraz, Iran. In my free time I play guitar, hike and canyoneer, draw caricatures, and read.</p>
+    <div class="links" style="margin-top:12px;">
+      <a class="btn" href="https://www.linkedin.com/in/farnaz-farhand-2b0069192/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/farnaz-frd" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <p class="meta" style="margin-top:16px;">In my free time I play guitar, hike and canyoneer, draw caricatures, and read.</p>
   </section>
 
 </main>
@@ -355,6 +367,38 @@
 <footer>
   <div class="wrap">© Farnaz Farhand</div>
 </footer>
+
+<script>
+  (function () {
+    var btn = document.getElementById('copy-email');
+    var text = document.getElementById('email-text');
+    if (!btn || !text) return;
+    var email = text.textContent.trim();
+    var original = btn.textContent;
+
+    function done(ok) {
+      btn.textContent = ok ? 'Copied!' : 'Press Ctrl+C to copy';
+      setTimeout(function () { btn.textContent = original; }, 2000);
+    }
+    function fallback() {
+      try {
+        var range = document.createRange();
+        range.selectNodeContents(text);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        done(document.execCommand('copy'));
+      } catch (e) { done(false); }
+    }
+    btn.addEventListener('click', function () {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(email).then(function () { done(true); }, fallback);
+      } else {
+        fallback();
+      }
+    });
+  })();
+</script>
 
 </body>
 </html>
